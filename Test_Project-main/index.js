@@ -1,32 +1,129 @@
-class  Product {
-    constructor(name, price) {
-        this.name = name;
-        this.price = price;
-    }
-
-    display(){
-        console.log(`Product Name: ${this.name}`);
-        console.log(`Product Price: $${this.price}`);
-    }
+function Kvetina(nazev, barva, cena) {
+    this.nazev = nazev;
+    this.barva = barva;
+    this.cena = cena;
 }
 
-const product1 = new Product("Laptop", 1200);
-const product2 = new Product("Smartphone", 800);
-const product3 = new Product("Tablet", 600);
-const product4 = new Product("Smartwatch", 300);
-const product5 = new Product("Headphones", 150);
-const product6 = new Product("Charger", 20);
-const product7 = new Product("Mouse", 25);
-const product8 = new Product("Keyboard", 45);
-const product9 = new Product("Monitor", 300);
-const product10 = new Product("Printer", 150);
-const product11 = new Product("Scanner", 200);
-const product12 = new Product("Webcam", 100);
-const product13 = new Product("Microphone", 80);
+let ruze = new Kvetina("Růže", "červená", 50);
+let tulipan = new Kvetina("Tulipán", "žlutý", 30);
+let narcis = new Kvetina("Narcis", "bílý", 20);
+let kvetiny = [ruze, tulipan, narcis];
+
+function totalPrice(kvetiny){
+    let totalPrice = 0;
+
+    for(kvetina of kvetiny){
+        totalPrice += kvetina.cena;
+    }
+    return totalPrice;
+}
+
+console.log("Seznam květin:" + kvetiny.map(kvetina => `\n${kvetina.nazev} - ${kvetina.barva} - ${kvetina.cena} Kč`));
+
+console.log(`Celková cena květin: ${totalPrice(kvetiny)} Kč`);
 
 
-product1.display();
-product2.display();
-product3.display();
-product4.display();
-product5.display();
+let jmeno = "Jan";
+console.log(typeof jmeno);
+console.log(`Ahoj ${jmeno}, vítej v našem květinářství!`);
+console.log(`Prvni pismeno v mem jmenu je `+ jmeno.charAt(0));
+
+
+let test = "Java Script language";
+console.log(test.length);
+console.log(test.slice(0, 4));
+console.log(test.split(` `));
+
+
+// Vytvoření objektu
+let auto = {
+    znacka: "Škoda",
+    model: "Octavia",
+    rokVyroby: 2020,
+    barva: "modrá",
+    cena: 500000
+};
+// Přístup k vlastnostem objektu
+console.log("Značka: " + auto.znacka);
+delete auto.znacka;
+console.log("Značka: " + auto.znacka);
+
+console.log("Model: " + auto.model);
+
+//Pole 
+let days = ["pondeli", "utery", "streda", "ctvrtek", "patek", "sobota", "nedele"];
+console.log(days[0]);
+console.log(days.indexOf("streda"));
+
+let  names  =  [["Olivia",  "Emma",  "Mia",  "Sofia"],  ["William",  "James",  "Daniel"]];
+console.log(names[0]);  //  ->  ["Olivia",  "Emma",  "Mia",  "Sofia"]
+console.log(names[0][1]);  //  ->  Emma
+console.log(names[1][1]);  //  ->  James
+   
+let  users  =[  
+         {
+                 name:  "Calvin",
+                 surname:  "Hart",
+                 age:  66,
+                 email:  "CalvinMHart@teleworm.us"
+         },
+         {
+                 name:  "Mateus",
+                 surname:  "Pinto",
+                 age:  21,
+                 email:  "MateusPinto@dayrep.com"
+         }
+];
+   
+console.log(users[0].name);  //  ->  Calvin
+console.log(users[1].age);  //  ->  21
+
+
+//Slice = vytvoření podpole
+let fruits = ["jablko", "banan", "hruska", "pomeranc", "broskev"];
+let slicedFruits = fruits.slice(1, 4); // Vytvoří podpole od indexu 1 do indexu 4 (ne včetně)
+console.log(slicedFruits); // ["banan", "hruska", "pomeranc"]
+
+
+let tickets = {
+    from: "Praha",
+    to: "Brno",
+    price: 500,
+}
+
+console.log(tickets.from);
+console.log(tickets.to);
+console.log(tickets.price);
+
+let books = [
+    {
+        title: "Kniha 1",
+        author: "Autor 1",
+        year: 2020,
+    },
+    {
+        title: "Kniha 2",
+        author: "Autor 2",
+        year: 2021,
+    },
+    {
+        title: "Kniha 3",
+        author: "Autor 3",
+        year: 2022,
+    },
+];
+
+let newBook = {
+    title: "Kniha 4",
+    author: "Autor 4",
+    year: 2023,
+};
+books.push(newBook);
+console.log(books);
+
+let bookshelf = books.slice(-2); // Vytvoří podpole posledních dvou knih);
+console.log(bookshelf);
+
+let age = 32;
+age = age + 1;
+console.log(age);
